@@ -3,6 +3,7 @@ package com.jsf2;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import org.slf4j.Logger;
@@ -23,8 +24,9 @@ public class StudentTwo{
 	private Map<String,String> countryOptions;
 	
 	//Public no-argument constructor
-	public StudentTwo() {
-		logger.info("StudentTwo() Constructer called.."); 
+	@PostConstruct
+	public void init(){
+		logger.info("init() Constructer called.."); 
 		
 		//populate the list of countries
 		
