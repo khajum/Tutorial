@@ -32,7 +32,7 @@ public class SumIsPower {
 	public static boolean isPowerOfTwo(int n) {
 	
 		for(int i = 1; i<=n; i++) {
-			if(Math.pow(2,i) == n) {
+			if(i*i == n) {
 				return true;
 			} else if (Math.pow(2,i) > n){
 				return false;

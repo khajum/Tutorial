@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class MeeraArray {
 
 	public static void main(String[] args) {
-		int[] a = {2, 4, 6, 8, 6};
+		int[] a = {2, 8, 7, 10, -4, 6};
 		
 		if (isMeera(a) == 1) {
 			System.out.printf("%s Array is Meera Array",Arrays.toString(a));
@@ -18,7 +18,7 @@ public class MeeraArray {
 		int noOfEvenNumberAtEnd = 0;
 		
 		//if array element does not starts with even then return 0.
-		if(a[0]%2 != 0) {
+		if(a[0]%2 != 0 && a[a.length-1]%2 !=0) {
 			return 0;
 		}
 

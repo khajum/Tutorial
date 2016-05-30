@@ -30,7 +30,7 @@ public class MadhavArray {
 			} 
 		}
 	
-		// Checking condition of a[0] = a[1] + a[2] = a[3]+a[4]+a[5]=... if n(n+1)/2 condition satisfyies
+		// Checking condition of a[0] = a[1] + a[2] = a[3]+a[4]+a[5]=... if n(n+1)/2 condition satisfies
 
 		int firstItem = a[0];
 

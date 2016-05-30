@@ -17,17 +17,17 @@ Last Name:<h:inputText id="lastName" value="#{studentThree.lastName}" />
 		<br />
 		<br />
 Favourite Programming Language :
-<h:selectManyCheckbox value="#{studentThree.favouriteLanguages}">
+<!-- <h:selectManyCheckbox value="#{studentThree.favouriteLanguages}">
 <f:selectItem itemLabel="Java" itemValue="Java" />
 <f:selectItem itemLabel="C#" itemValue="C#" />
 <f:selectItem itemLabel="PHP" itemValue="PHP" />
 <f:selectItem itemLabel="Ruby" itemValue="Ruby" />
 </h:selectManyCheckbox>
 <br /><br />
-
-<!-- 		<h:selectOneRadio value="#{studentThree.favouriteLanguage}">
+ -->
+		<h:selectManyCheckbox value="#{studentThree.favouriteLanguages}">
 			<f:selectItems value="#{studentThree.favouriteLanguageOptions}" />
-		</h:selectOneRadio> -->
+		</h:selectManyCheckbox>
 		<h:commandButton value="Submit" action="checkbox_response" />
 	
 	</h:form>
