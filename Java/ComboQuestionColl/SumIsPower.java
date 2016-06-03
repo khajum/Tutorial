@@ -29,16 +29,29 @@ public class SumIsPower {
 	
 	}	
 	
-	public static boolean isPowerOfTwo(int n) {
+	static boolean isPowerOfTwo(int n) {
+		while(n%2==0 && n>1)
+			n /=2;
+		return (n == 1);		
 	
-		for(int i = 1; i<=n; i++) {
-			if(i*i == n) {
-				return true;
-			} else if (Math.pow(2,i) > n){
+	}
+	
+	static boolean isPowerOfTow_2(int n) {
+	
+		if(n<2){
+			return false;
+		}
+		while(n != 1) {
+			if(n%2!=0) {
 				return false;
 			}
+			
+			n /= 2;
+		
 		}
 		
-		return false;
+		return true;
+	
 	}
+	
 }
