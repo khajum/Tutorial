@@ -4,10 +4,12 @@ For example, goodSpread(new int[] {2, 1, 2, 5, 2, 1, 5, 9} returns 1 because no 
 But goodSpread(new int[ ] {3, 1, 3 ,1, 3, 5, 5, 3} ) returns 0 because the value 3 occurs four times.
 */
 
-public class GoodSpread1 {
+public class GoodSpread_Feb13 {
 	public static void main(String[] args) {
-		int[] arr = new int[]{3, 1, 3 ,1, 3, 5, 5,3};
+		int arr[] = new int[]{2, 1, 2, 5, 2, 1, 5, 9};
+		int arr2[] = new int[]{3, 1, 3 ,1, 3, 5, 5,3};
 		System.out.println(isGoodSpread(arr));
+		System.out.println(isGoodSpread(arr2));
 	}
 	
 	static int isGoodSpread(int[] a) {
@@ -16,11 +18,9 @@ public class GoodSpread1 {
 		for(int i = 0; i<a.length; i++) {
 			occurance = 1;
 			for(int j=0; j<a.length; j++) {
-				if (i != j) {
-					if (a[i] == a[j]) {
+					if (i !=j && a[i] == a[j]) {
 						occurance++;
 					}
-				}
 			}
 			
 			if (occurance > 3) {

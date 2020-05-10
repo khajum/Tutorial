@@ -12,10 +12,9 @@ Note that from left to right or right to left we have even, odd, odd, even, odd,
 public class SymmArray_March12 {
 
 	public static void main(String[] args) {
-		//int a = isSym(new int[]{2, 7, 9, 10, 11, 5, 8});
-		//int a = isSym(new int[] {9, 8, 7, 13, 14, 17});
-		int a = isSym(new int[]{2, 7, 8, 9, 11, 13, 10});
-		System.out.println(a);
+		System.out.println(isSym_2(new int[]{2, 7, 9, 10, 11, 5, 8}));
+		System.out.println(isSym_2(new int[] {9, 8, 7, 13, 14, 17}));
+		System.out.println(isSym_2(new int[]{2, 7, 8, 9, 11, 13, 10}));
 	}
 	
 	static int isSym(int[] a){
@@ -49,7 +48,19 @@ public class SymmArray_March12 {
 	
 	}
 	
+	static int isSym_2(int[] a){
+		for(int i =0, j=a.length-1; i<a.length/2; i++,j--) {
+				if(isEven(a[i]) ^ isEven(a[j]))
+					return 0;
+		}
+		
+		return 1;
+	
+	}
+	
+	
 	static boolean isEven(int n){
 		return (n%2 == 0)?true:false;
 	}
+	
 }
