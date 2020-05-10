@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!--  to activate required annotation-->
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
+	
+	<bean id="dao" class="com.durgasoft.springioc_12.DAO" dependency-check="simple">
+		<property name="driver" value="oracle.jdbc.pool.OracleDataSource" />
+		<property name="url" value="jdbc:oracle:thin:@localhost" />
+		<property name="user" value="scott" />
+		<property name="password" value="tiger" />
+	</bean>
+	
+	<!--  Mysql Connection -->
+	<bean id="mysqlDao" class="com.durgasoft.springioc_12.DAO">
+	<property name="driver" value="com.mysql.jdbc.Driver"/>
+	<property name="url" value="jdbc:mysql://localhost"/>
+	</bean>
+</beans>

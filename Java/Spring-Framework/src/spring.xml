@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<!-- Configuration for Tutorail 07 - Injecting Objects -->
+	<bean id="triangle07" class="com.javabrains.tutorial07.Triangle">
+		<property name="pointA" ref="zeroPoint" />
+		<property name="pointB" ref="point2" />
+		<property name="pointC" ref="point3" />
+	</bean>
+
+	<bean id="zeroPoint" class="com.javabrains.tutorial07.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="point2" class="com.javabrains.tutorial07.Point">
+		<property name="x" value="0" />
+		<property name="y" value="20" />
+	</bean>
+
+	<bean id="point3" class="com.javabrains.tutorial07.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+
+	<!-- Configuration for Tutorial 08 - Inner Beans, Aliases and idref -->
+	<bean id="triangle08" class="com.javabrains.tutorial08.Triangle" name="traingle08-alias02">
+		<property name="pointA" ref="zeroPoint08" />
+		<property name="pointB">
+			<bean class="com.javabrains.tutorial08.Point">
+				<property name="x" value="-20" />
+				<property name="y" value="0" />
+			</bean>
+		</property>
+		<property name="pointC">
+			<bean class="com.javabrains.tutorial08.Point">
+				<property name="x" value="0" />
+				<property name="y" value="20" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="zeroPoint08" class="com.javabrains.tutorial08.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+	<!-- Alias to Beann ID -->
+	<alias name="triangle08" alias="triangle08-alias" />
+
+	<!-- Configuration for Tutorail 09 - Initializing Collections -->
+	<bean id="triangle09" class="com.javabrains.tutorial09.Triangle">
+		<property name="points">
+			<list>
+				<ref bean="zeroPoint-09" />
+				<ref bean="point2-09" />
+				<ref bean="point3-09" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="zeroPoint-09" class="com.javabrains.tutorial09.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="point2-09" class="com.javabrains.tutorial09.Point">
+		<property name="x" value="0" />
+		<property name="y" value="-20" />
+	</bean>
+
+	<bean id="point3-09" class="com.javabrains.tutorial09.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+
+	<!-- Configuration for Tutorial 10 - Bean Autowiring -->
+	<bean id="triangle10" class="com.javabrains.tutorial10.Triangle"
+		autowire="byName" />
+
+	<bean id="pointA" class="com.javabrains.tutorial10.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+
+	<bean id="pointB" class="com.javabrains.tutorial10.Point">
+		<property name="x" value="0" />
+		<property name="y" value="-20" />
+	</bean>
+
+	<bean id="pointC" class="com.javabrains.tutorial10.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+	<!-- Configuration for tutorial 12 - ApplicationcontextAware -->
+	<bean id="triangle12" class="com.javabrains.tutorial12.Triangle">
+		<property name="pointA" ref="zeroPoint_12" />
+		<property name="pointB" ref="point2_12" />
+		<property name="pointC" ref="point3_12" />
+	</bean>
+
+	<bean id="zeroPoint_12" class="com.javabrains.tutorial12.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="point2_12" class="com.javabrains.tutorial12.Point">
+		<property name="x" value="0" />
+		<property name="y" value="20" />
+	</bean>
+
+	<bean id="point3_12" class="com.javabrains.tutorial12.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+
+	<!-- Configuration for Tutorial 13 - Bean Defination Inheritance -->
+	<bean id="parent-triangle13" class="com.javabrains.tutorial13.Triangle"
+		abstract="true">
+		<property name="pointA" ref="zeroPoint-13" />
+	</bean>
+
+	<bean id="triangle-13" parent="parent-triangle13">
+		<property name="pointB" ref="point2-13" />
+		<property name="pointC" ref="point3-13" />
+	</bean>
+
+	<bean id="zeroPoint-13" class="com.javabrains.tutorial13.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+
+	<bean id="point2-13" class="com.javabrains.tutorial13.Point">
+		<property name="x" value="0" />
+		<property name="y" value="-20" />
+	</bean>
+
+	<bean id="point3-13" class="com.javabrains.tutorial13.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+
+
+	<!-- Configuration for Tutorail 14 - Lifecycle Callbacks -->
+	<bean id="triangle-14" class="com.javabrains.tutorial14.Triangle"
+		init-method="myInit" destroy-method="cleanUp">
+		<property name="pointA" ref="zeroPoint-14" />
+		<property name="pointB" ref="point2-14" />
+		<property name="pointC" ref="point3-14" />
+	</bean>
+
+	<bean id="zeroPoint-14" class="com.javabrains.tutorial14.Point">
+		<!-- <property name="x" value="0" /> <property name="y" value="0" /> -->
+		<!-- for tutorial 16 -->
+		<property name="x" value="${pointA.pointX}" />
+		<property name="y" value="${pointA.pointY}" />
+
+	</bean>
+
+	<bean id="point2-14" class="com.javabrains.tutorial14.Point">
+		<property name="x" value="0" />
+		<property name="y" value="20" />
+	</bean>
+
+	<bean id="point3-14" class="com.javabrains.tutorial14.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+
+	<!-- Configuration for Tutorial 15 - BeanPostProcessor -->
+	<bean class="com.javabrains.tutorial15.DisplayNameBeanPostProcessor" />
+
+	<!-- Configuration for Tutorial 16 - BeanFactoryPostProcessor -->
+	<!-- <bean class="com.javabrains.tutorial16.MyBeanFactoryPostProcessor" /> -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceHolderConfigurer">
+		<property name="locations" value="bean-config.properties" />
+	</bean>
+
+</beans>
+
+

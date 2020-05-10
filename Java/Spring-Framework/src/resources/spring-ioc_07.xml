@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+	<!-- Injecting Object using Inner Bean -->
+
+	<bean id="person" class="com.durgasoft.springioc_07.Person">
+		<property name="name" value="Rod Johnson" />
+		<property name="about" value="Founder of the Spring Framework" />
+		<property name="gender" value="Male" />
+		<property name="age" value="45" />
+		<!-- Inner Bean -->
+		<property name="address">
+			<bean class="com.durgasoft.springioc_07.Address">
+				<property name="country" value="Australia" />
+				<property name="state" value="UnKnown" />
+				<property name="city" value="UnKnown" />
+			</bean>
+		</property>
+	</bean>
+<!-- 
+	<bean id="address" class="com.durgasoft.springioc_07.Address">
+		<property name="country" value="USA" />
+		<property name="city" value="Boston" />
+		<property name="state" value="MA" />
+	</bean>
+	 -->
+</beans>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="person" class="com.durgasoft.springioc_04.Person">
+		<!-- Dependency Injection using setter methods -->
+		<!-- 
+		<property name="name" value="Rod Johnson" />
+		<property name="about" value="Founder of Spring Framework" />
+		<property name="gender" value="Male"></property>
+		<property name="age">
+			<value>40</value>
+		</property>
+ 		-->
+ 		
+		<!-- DI using constructor -->
+<!-- 		
+		<constructor-arg value="James Gosling" />
+		<constructor-arg value="Father of Java Programming Language" />
+		<constructor-arg value="Male" />
+		<constructor-arg value="45" />
+ -->
+ 
+		<!-- DI Constructor argument using Index -->
+		<constructor-arg value="Founder of Hibernate Project" index="1" />
+		<constructor-arg value="Male" index="2" />
+		<constructor-arg value="38" index="3" />
+		<constructor-arg value="Gavin King" index="0" />
+	</bean>
+
+</beans>

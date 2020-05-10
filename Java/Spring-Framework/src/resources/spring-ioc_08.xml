@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+	<bean id="person" class="com.durgasoft.springioc_08.Person">
+		<property name="name" value="Rod Johnson" />
+		<property name="about" value="Founder of the Spring Framework" />
+		<property name="fruits">
+			<list>
+				<value>Mango</value>
+				<value>Orange</value>
+				<value>Banana</value>
+			</list>
+		</property>
+		<property name="players">
+			<set>
+				<value>Ronaldo</value>
+				<value>Messi</value>
+				<value>Neymar</value>
+				<value>Bale</value>
+			</set>
+		</property>
+		<property name="technologies">
+			<map>
+				<entry key="language" value="Java" />
+				<entry key="web" value="SpringMVC" />
+
+				<entry>
+					<key>
+						<value>/Javascript</value>
+					</key>
+					<value>JQuery</value>
+				</entry>
+
+				<entry key="ORM">
+					<value>Hibernate</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

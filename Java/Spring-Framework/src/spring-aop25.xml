@@ -1,0 +1,43 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- Tutorial AOP 25 - -->
+
+	<aop:aspectj-autoproxy />
+
+	<bean id="triangle" class="com.javabrains.springaop25.Triangle">
+		<property name="name" value="Triangle name" />
+	</bean>
+
+	<bean id="circle" class="com.javabrains.springaop25.Circle">
+		<property name="name" value="Circle name" />
+	</bean>
+
+	<bean id="cs" class="com.javabrains.springaop25.ShapeService"
+		autowire="byName" />
+
+	<bean name="loggingAspect" class="com.javabrains.springaop25.LoggingAspect"></bean>
+	
+	<!-- Tutorial 34  -->
+<!-- 	<bean id="loggingAspectAnnotation" class="com.javabrains.springaop25.LoggingAspectAnnotation"></bean>
+ -->
+ <!-- 
+	<bean id="laXmlBean" class="com.javabrains.springaop25.LoggingAspectXML"></bean>
+	<aop:config>
+		<aop:aspect id="loggingAspectXml" ref="laXmlBean">
+			<aop:pointcut expression="execution(* set*(..))" id="allSettors" />
+			<aop:before method="beforeAdvice" pointcut-ref="allSettors" />
+			<aop:around method="aroundAdvice" pointcut-ref="allSettors"/>
+		</aop:aspect>
+	</aop:config>
+ -->	
+</beans>

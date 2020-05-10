@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="bank" class="com.durgasoft.springaop_05.Bank" />
+	<bean id="log" class="com.durgasoft.springaop_05.LogBeforeService" />
+
+	<bean id="dpc" class="com.durgasoft.springaop_05.DepositPointcut"></bean>
+
+	<bean id="dpa" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice" ref="log" />
+		<property name="pointcut" ref="dpc" />
+	</bean>
+
+	<bean id="pfb" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="bank" />
+		<property name="interceptorNames">
+			<list>
+				<value>dpa</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>

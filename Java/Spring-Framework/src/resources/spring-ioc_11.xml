@@ -1,0 +1,32 @@
+<beans	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns:util="http://www.springframework.org/schema/util"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="person" class="com.durgasoft.springioc_11.Person">
+		<property name="name" value="Rod Johnson" />
+		<property name="about" value="Founder of the Spring Framework" />
+		<property name="fruits">
+			<util:list list-class="java.util.Vector">
+				<value>Mango</value>
+				<value>Orange</value>
+				<value>Banana</value>
+			</util:list>
+		</property>
+		<property name="players">
+			<util:set set-class="java.util.TreeSet">
+				<value>Ronaldo</value>
+				<value>Messi</value>
+				<value>Neymar</value>
+				<value>Bale</value>
+			</util:set>
+		</property>
+		<property name="technologies">
+			<util:map>
+				<entry key="language" value="Java" />
+				<entry key="web" value="SpringMVC" />
+				<entry key="javascript" value="JQuery" />
+			</util:map>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<!-- Tutorial 17 - Auto Wiring -->
+	<bean id="car" class="com.durgasoft.springioc_17.Car" autowire="byType">
+	</bean>
+
+	<bean id="engine" class="com.durgasoft.springioc_17.Engine">
+		<property name="modelYear" value="2017" />
+	</bean>
+
+	<bean id="engine-bus" class="com.durgasoft.springioc_17.Engine" autowire-candidate="false">
+		<property name="modelYear" value="2015" />
+	</bean>
+	
+	<bean id="bus" class="com.durgasoft.springioc_17.Bus" autowire="autodetect"></bean>
+</beans>

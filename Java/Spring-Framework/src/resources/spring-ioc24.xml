@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Tutorial IOC 24 - Factory Class DI -->
+	<bean id="cf" class="com.durgasoft.springioc_24.CarInstanceFactory"
+		factory-method="getInstance"></bean>
+
+	<bean id="calendar" class="java.util.Calendar" factory-method="getInstance"></bean>
+
+	<!-- Static Factory approach -->
+	<bean
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod"
+			value="com.durgasoft.springioc_24.CarFactory.setCarName" />
+		<property name="arguments">
+			<list>
+				<value>com.durgasoft.springioc_24.Swift</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="car-factory" class="com.durgasoft.springioc_24.CarFactory"
+		factory-method="getCar"></bean>
+
+
+	<!-- Factory class DI using non static(instance) method -->
+	<bean id="cf-ns" class="com.durgasoft.springioc_24.CarNonStaticFactory" >
+		<property name="carName" value="com.durgasoft.springioc_24.Maruti" ></property>
+	</bean>
+	
+	<bean id="cf2" factory-bean="cf-ns" factory-method="getCar"></bean>
+
+<!-- Factory class DI using FactoryBean -->
+<bean id="cfb" class="com.durgasoft.springioc_24.CarFactoryBean">
+<property name="carName" value="com.durgasoft.springioc_24.Swift" />
+</bean>
+</beans>

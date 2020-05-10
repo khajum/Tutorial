@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/util 
+	http://www.springframework.org/schema/util/spring-util.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+		
+	<context:component-scan base-package="com.durgasoft.springioc_21_22" />
+	<context:annotation-config />
+
+	<bean id="engine" class="com.durgasoft.springioc_21_22.Engine">
+		<property name="modelYear" value="2017"></property>
+	</bean>
+	
+	<bean id="engine-2" class="com.durgasoft.springioc_21_22.Engine">
+	<property name="modelYear" value="2015"></property>
+	</bean>
+
+	<!-- Tutorial IOC 22 - Static variable DI -->
+	<bean id="static-car" class="com.durgasoft.springioc_21_22.StaticCar">
+		<property name="carName" value="Mercedes Benz" />
+	</bean>
+</beans>
