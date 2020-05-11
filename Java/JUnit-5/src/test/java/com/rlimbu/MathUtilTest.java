@@ -20,7 +20,7 @@ import org.junit.jupiter.api.TestReporter;
  */
 @TestInstance(Lifecycle.PER_CLASS)
 public class MathUtilTest {
-    MathUtil mathUtil;
+    Calculator mathUtil;
     TestInfo testInfo;
     TestReporter testReporter;
     
@@ -29,7 +29,7 @@ public class MathUtilTest {
         this.testInfo = testInfo;
         this.testReporter = testReporter;
         
-        mathUtil = new MathUtil();
+        mathUtil = new Calculator();
         testReporter.publishEntry("test");
     }
 
